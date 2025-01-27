@@ -1,0 +1,17 @@
+import { products } from '$lib/products.js';
+import { cart } from '$lib/cart';
+
+import type { PageServerLoad } from './$types';
+import { get } from 'svelte/store';
+
+export const load: PageServerLoad = ({ params }) => {
+	// Return a list of products to show in the cart
+	let cartProducts: Product[] = [];
+	get(cart.products).forEach((productId) => {
+		let product = products[productId];
+		if (product) {
+			cartProducts.push(product);
+		}
+	});
+	return { cartProducts };
+};
