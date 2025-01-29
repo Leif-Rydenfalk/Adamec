@@ -1,11 +1,18 @@
 <script>
-import { Show, Text, Button, Icon, Logo, CancelIcon } from '$lib/components';
+	import {
+		Show,
+		Text,
+		Button,
+		Icon,
+		Logo,
+		CancelIcon,
+	} from "$lib/components";
 
-import { cart, showCart } from '$lib/cart';
-const { productCount } = cart;
-import { get } from 'svelte/store';
-import { goto } from '$app/navigation';
-import { products } from './products';
+	import { cart, showCart } from "$lib/cart";
+	const { productCount } = cart;
+	import { get } from "svelte/store";
+	import { goto } from "$app/navigation";
+	import { products } from "./products";
 </script>
 
 {#if !$showCart}
@@ -28,11 +35,11 @@ import { products } from './products';
 	>
 		<Button
 			onClick={() => {
-				goto('/cart');
+				goto("/cart");
 			}}
 		>
 			<div
-				class="text-white justify-center items-center bg-black rounded-3xl drop-shadow-xl scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
+				class="text-white justify-center items-center bg-secondary rounded-3xl drop-shadow-xl scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
 			>
 				<div class="p-4 lg:p-6">
 					<div class="flex gap-3 items-center justify-center">
@@ -51,8 +58,8 @@ import { products } from './products';
 										stroke-width="2"
 										><path
 											d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0m11 0a2 2 0 1 0 4 0a2 2 0 1 0-4 0"
-										></path><path d="M17 17H6V3H4"></path><path
-											d="m6 5l14 1l-1 7H6"
+										></path><path d="M17 17H6V3H4"
+										></path><path d="m6 5l14 1l-1 7H6"
 										></path></g
 									></svg
 								>
