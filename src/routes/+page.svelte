@@ -1,7 +1,7 @@
 <script lang="ts">
 import { goto } from '$app/navigation';
 import { Text, Button, Logo, Show, Icon } from '$lib/components';
-import Product from '$lib/Product.svelte';
+import Project from '$lib/Project.svelte';
 import TitleCard from '$lib/TitleCard.svelte';
 import VerticalSectionExpandable from '$lib/VerticalSectionExpandable.svelte';
 
@@ -40,38 +40,38 @@ import { onMount } from 'svelte';
 	}}
 	class="w-[100vw] flex flex-col items-center justify-center text-center"
 >
-	<VerticalSectionExpandable title="Featured products">
-		<Product id={1} />
-		<Product id={2} />
-		<Product id={3} />
-		<Product id={4} />
-		<Product id={5} />
-		<Product id={6} />
+	<VerticalSectionExpandable title="Featured projects">
+		<Project id={1} />
+		<Project id={2} />
+		<Project id={3} />
+		<Project id={4} />
+		<Project id={5} />
+		<Project id={6} />
 		<svelte:fragment slot="expanded">
-			<Product id={7} />
-			<Product id={8} />
-			<Product id={9} />
-			<Product id={10} />
-			<Product id={11} />
-			<Product id={12} />
+			<Project id={7} />
+			<Project id={8} />
+			<Project id={9} />
+			<Project id={10} />
+			<Project id={11} />
+			<Project id={12} />
 		</svelte:fragment>
 	</VerticalSectionExpandable>
 
 	<VerticalSectionExpandable title="Equipment">
-		<Product id={13} />
-		<Product id={14} />
-		<Product id={15} />
+		<Project id={13} />
+		<Project id={14} />
+		<Project id={15} />
 	</VerticalSectionExpandable>
 
 	<VerticalSectionExpandable title="Gym">
-		<Product id={16} />
-		<Product id={17} />
-		<Product id={18} />
+		<Project id={16} />
+		<Project id={17} />
+		<Project id={18} />
 	</VerticalSectionExpandable>
 
 	<VerticalSectionExpandable title="Suppliments">
-		<Product id={19} />
-		<Product id={20} />
-		<Product id={21} />
+		<Project id={19} />
+		<Project id={20} />
+		<Project id={21} />
 	</VerticalSectionExpandable>
 </div>

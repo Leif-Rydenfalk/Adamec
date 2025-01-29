@@ -1,30 +1,30 @@
 <script>
-	import { Text, Button, Logo, Show, Icon } from "$lib/components";
+import { Text, Button, Logo, Show, Icon } from '$lib/components';
 
-	import { scroll, animate } from "motion";
-	import { onMount } from "svelte";
+import { scroll, animate } from 'motion';
+import { onMount } from 'svelte';
 
-	let element;
-	let target;
+let element;
+let target;
 
-	onMount(() => {
-		const animation = animate(
-			element,
-			{
-				rotate: ["5deg", 0],
-				borderRadius: ["4rem", "0%"],
-				scale: [0.9, 1],
-			},
-			{ ease: "linear" },
-		);
+onMount(() => {
+	const animation = animate(
+		element,
+		{
+			rotate: ['5deg', 0],
+			borderRadius: ['4rem', '0%'],
+			scale: [0.9, 1]
+		},
+		{ ease: 'linear' }
+	);
 
-		const cancel = scroll(animation, { target: target });
+	const cancel = scroll(animation, { target: target });
 
-		return () => {
-			cancel();
-			animation.stop();
-		};
-	});
+	return () => {
+		cancel();
+		animation.stop();
+	};
+});
 </script>
 
 <div
@@ -41,7 +41,7 @@
 		<div class="h-[4.3rem]">
 			<Text
 				timing={{ delay: 0.8 }}
-				text="Morph App"
+				text="Leif Adamec Rydenfalk"
 				size="xl_title"
 				tracking="wide"
 			/>
@@ -50,7 +50,7 @@
 		<div class="h-[3rem]">
 			<Text
 				timing={{ delay: 1.2 }}
-				text="Find the achilles heel of your laziness"
+				text="Inspiration is conditional, let me be true."
 				size="md"
 				tracking="wide"
 			/>
@@ -76,7 +76,7 @@
 				stroke-linejoin="round"
 				stroke-width="2"
 				d="m19 9l-7 7l-7-7"
-			/></svg
+			></path></svg
 		>
 	</div>
 
