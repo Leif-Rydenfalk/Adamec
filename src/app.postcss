@@ -3,6 +3,16 @@
 @tailwind utilities;
 @tailwind variants;
 
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	overflow: auto;
+}
+
 html,
 body {
 	@apply overscroll-x-none overflow-x-hidden;
@@ -72,7 +82,6 @@ html.lenis body {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#58a6ff",endColorstr="#3ea1ff",GradientType=1); */
 }
 
-
 .bg-secondary {
 	background: rgb(40, 39, 39);
 	background: -moz-linear-gradient(
@@ -85,14 +94,9 @@ html.lenis body {
 		rgb(15, 15, 15) 35%,
 		rgb(23, 23, 23) 100%
 	);
-	background: linear-gradient(
-		62deg,
-		rgb(15, 15, 15) 35%,
-		rgb(23, 23, 23) 100%
-	);
+	background: linear-gradient(62deg, rgb(15, 15, 15) 35%, rgb(23, 23, 23) 100%);
 	/* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#dadada",GradientType=1); */
-} 
-
+}
 
 .bg-foundation {
 	background: rgb(236, 236, 236);

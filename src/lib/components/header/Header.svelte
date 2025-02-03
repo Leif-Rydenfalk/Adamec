@@ -1,123 +1,123 @@
 <script lang="js">
-	import {
-		Image,
-		Text,
-		Show,
-		Button,
-		LinkButton,
-		QuickLinks,
-		Logo,
-		CartIcon,
-		CancelIcon,
-		SearchIcon,
-		MenuIcon,
-		WindowSize,
-		BackgroundBlur,
-	} from "$lib/components";
+import {
+	Image,
+	Text,
+	Show,
+	Button,
+	LinkButton,
+	QuickLinks,
+	Logo,
+	CartIcon,
+	CancelIcon,
+	SearchIcon,
+	MenuIcon,
+	WindowSize,
+	BackgroundBlur
+} from '$lib/components';
 
-	import { onMount } from "svelte";
-	import { get } from "svelte/store";
+import { onMount } from 'svelte';
+import { get } from 'svelte/store';
 
-	import { goto } from "$app/navigation";
-	import { animate, spring } from "motion";
+import { goto } from '$app/navigation';
+import { animate, spring } from 'motion';
 
-	import MenuSection from "./menu/MenuSection.svelte";
-	import SearchSection from "./search/SearchSection.svelte";
-	import TextButtons from "./TextButtons.svelte";
+import MenuSection from './menu/MenuSection.svelte';
+import SearchSection from './search/SearchSection.svelte';
+import TextButtons from './TextButtons.svelte';
 
-	let expanded = false;
-	let expanded_element;
-	let prev_expanded_element_height = 0;
+let expanded = false;
+let expanded_element;
+let prev_expanded_element_height = 0;
 
-	let header_background;
+let header_background;
 
-	let close_arrow;
+let close_arrow;
 
-	let tab = "";
+let tab = '';
 
-	let set_tab = (value) => {
-		if (tab === value) {
-			value = "";
-		}
-
-		tab = value;
-
-		expanded = value !== "";
-
-		update_expanded();
-	};
-
-	function update_expanded() {
-		if (expanded) {
-			// if (background) {
-			// 	background.style = background_class;
-			// }
-
-			setTimeout(async () => {
-				let height = expanded_element.offsetHeight;
-				animate(
-					header_background,
-					{ height: [`${expanded_element.offsetHeight}px`] },
-					{
-						easing: spring({
-							stiffness: 100,
-							damping: 8,
-							mass: 0.5,
-							restDistance: 0.005,
-							restSpeed: 0.005,
-						}),
-						// easing: 'linear',
-						// duration: 0.01
-					},
-				);
-
-				animate(
-					close_arrow,
-					{ y: [`100px`, `0px`], opacity: [1] },
-					{
-						easing: spring({
-							stiffness: 100,
-							damping: 8,
-							mass: 0.5,
-							restDistance: 0.005,
-							restSpeed: 0.005,
-						}),
-						delay: 0.3,
-					},
-				);
-			}, 1);
-		} else {
-			// if (background) {
-			// 	background.style = '';
-			// }
-			// cart.set_open(false);
-			tab = "";
-
-			setTimeout(async () => {
-				animate(
-					header_background,
-					{ height: [`0px`] },
-					{
-						easing: spring({
-							stiffness: 50,
-							damping: 16,
-							mass: 0.5,
-							restDistance: 0.005,
-							restSpeed: 0.005,
-						}),
-					},
-				);
-			}, 20);
-		}
+let set_tab = (value) => {
+	if (tab === value) {
+		value = '';
 	}
 
-	onMount(() => {
-		set_tab("");
-	});
+	tab = value;
 
-	// bg-glass-light
+	expanded = value !== '';
 
-	let show = true;
+	update_expanded();
+};
+
+function update_expanded() {
+	if (expanded) {
+		// if (background) {
+		// 	background.style = background_class;
+		// }
+
+		setTimeout(async () => {
+			let height = expanded_element.offsetHeight;
+			animate(
+				header_background,
+				{ height: [`${expanded_element.offsetHeight}px`] },
+				{
+					easing: spring({
+						stiffness: 100,
+						damping: 8,
+						mass: 0.5,
+						restDistance: 0.005,
+						restSpeed: 0.005
+					})
+					// easing: 'linear',
+					// duration: 0.01
+				}
+			);
+
+			animate(
+				close_arrow,
+				{ y: [`100px`, `0px`], opacity: [1] },
+				{
+					easing: spring({
+						stiffness: 100,
+						damping: 8,
+						mass: 0.5,
+						restDistance: 0.005,
+						restSpeed: 0.005
+					}),
+					delay: 0.3
+				}
+			);
+		}, 1);
+	} else {
+		// if (background) {
+		// 	background.style = '';
+		// }
+		// cart.set_open(false);
+		tab = '';
+
+		setTimeout(async () => {
+			animate(
+				header_background,
+				{ height: [`0px`] },
+				{
+					easing: spring({
+						stiffness: 50,
+						damping: 16,
+						mass: 0.5,
+						restDistance: 0.005,
+						restSpeed: 0.005
+					})
+				}
+			);
+		}, 20);
+	}
+}
+
+onMount(() => {
+	set_tab('');
+});
+
+// bg-glass-light
+
+let show = true;
 </script>
 
 {#if show}
@@ -125,11 +125,11 @@
 
 	<!-- <BackgroundBlur show={expanded} /> -->
 
-	{#if tab !== ""}
-		<div class="fixed top-0 h-screen w-screen bg-transparent z-[9950]">
+	{#if tab !== ''}
+		<div class="fixed top-0 h-screen w-screen bg-black opacity-20 z-[9950]">
 			<Button
 				onClick={() => {
-					set_tab("");
+					set_tab('');
 				}}
 			>
 				<div class="h-screen w-screen bg-transparent z-[9950]"></div>
@@ -141,10 +141,10 @@
 		>
 			<div bind:this={close_arrow} class="opacity-0">
 				<Button
-					style="h-[3.0rem] w-[4.0rem] flex justify-center items-center"
+					style="h-[3.0rem] w-[4.0rem] flex justify-center items-center text-white bg-secondary rounded-3xl drop-shadow-xl shadow-[0_0px_35px_rgba(255,255,255,0.25)]"
 					delay={0.4}
 					onClick={() => {
-						set_tab("");
+						set_tab('');
 					}}
 				>
 					<svg
@@ -175,13 +175,13 @@
 	>
 		<div class="w-screen md:w-[70vw] lg:w-[50vw]">
 			<div class="h-[4rem] flex justify-between items-center">
-				{#if tab === ""}
+				{#if tab === ''}
 					<Button
 						style="h-[4.0rem] w-[5.0rem] flex justify-center items-center"
 						delay={0.7}
 						onClick={() => {
-							if (document.location.pathname !== "/") {
-								goto("/");
+							if (document.location.pathname !== '/') {
+								goto('/');
 							}
 						}}
 					>
@@ -194,25 +194,21 @@
 				<WindowSize let:width>
 					{#if width > 768}
 						<div class="flex flex-row justify-center">
-							{#if tab === ""}
+							{#if tab === ''}
 								<Button
 									style="h-[4.0rem] w-[6.2rem] flex justify-center items-center"
 									delay={0.2}
 									onClick={() => {
-										goto("/about");
+										goto('/about');
 									}}
 								>
-									<Text
-										timing={{ delay: 0.2 }}
-										text="About"
-										size="tn_header"
-									/>
+									<Text timing={{ delay: 0.2 }} text="About" size="tn_header" />
 								</Button>
 								<Button
 									style="h-[4.0rem] w-[6.2rem] flex justify-center items-center"
 									delay={0.4}
 									onClick={() => {
-										goto("/projects");
+										goto('/projects');
 									}}
 								>
 									<Text
@@ -225,7 +221,7 @@
 									style="h-[4.0rem] w-[6.2rem] flex justify-center items-center"
 									delay={0.6}
 									onClick={() => {
-										goto("/projects/movies");
+										goto('/projects/movies');
 									}}
 								>
 									<Text
@@ -238,7 +234,7 @@
 									style="h-[4.0rem] w-[6.2rem] flex justify-center items-center"
 									delay={0.8}
 									onClick={() => {
-										goto("/contact");
+										goto('/contact');
 									}}
 								>
 									<Text
@@ -253,15 +249,15 @@
 				</WindowSize>
 
 				<div class="flex flex-row gap-2 lg:gap-[0rem]">
-					{#if tab === ""}
+					{#if tab === ''}
 						<Button
 							style="h-[4.0rem] w-[4.1rem] flex justify-center items-center"
 							delay={0.6}
 							onClick={() => {
-								set_tab("search");
+								set_tab('search');
 							}}
 						>
-							{#if tab === "search"}
+							{#if tab === 'search'}
 								<CancelIcon />
 							{:else}
 								<SearchIcon />
@@ -269,15 +265,15 @@
 						</Button>
 					{/if}
 
-					{#if tab === ""}
+					{#if tab === ''}
 						<Button
 							style="h-[4.0rem] w-[4.1rem] flex justify-center items-center pr-10"
 							delay={0.4}
 							onClick={() => {
-								set_tab("menu");
+								set_tab('menu');
 							}}
 						>
-							{#if tab === "menu"}
+							{#if tab === 'menu'}
 								<CancelIcon />
 							{:else}
 								<MenuIcon />
@@ -288,7 +284,7 @@
 							style="h-[4.0rem] w-[4.0rem] flex justify-center items-center pr-10"
 							delay={0.2}
 							onClick={() => {
-								set_tab("");
+								set_tab('');
 							}}
 						>
 							<CancelIcon />
@@ -297,20 +293,20 @@
 				</div>
 			</div>
 
-			{#if tab !== ""}
+			{#if tab !== ''}
 				<div class="h-[3rem]"></div>
 			{/if}
 
 			<div class="px-6 flex flex-col justify-start items-start">
-				{#if tab === "search"}
+				{#if tab === 'search'}
 					<SearchSection />
 				{/if}
 
-				{#if tab === "menu"}
-					<MenuSection {set_tab} />
+				{#if tab === 'menu'}
+					<MenuSection set_tab={set_tab} />
 				{/if}
 			</div>
-			{#if tab !== ""}
+			{#if tab !== ''}
 				<div class="h-[2rem]"></div>
 			{/if}
 		</div>

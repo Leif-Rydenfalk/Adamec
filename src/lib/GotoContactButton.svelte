@@ -29,7 +29,7 @@ import { goto } from '$app/navigation';
 		}}
 	>
 		<div
-			class="text-white justify-center items-center bg-secondary rounded-3xl drop-shadow-xl shadow-[0_0px_35px_rgba(255,255,255,0.15)] scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
+			class="text-white justify-center items-center bg-secondary rounded-3xl drop-shadow-xl shadow-[0_0px_35px_rgba(255,255,255,0.2)] scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
 		>
 			<div class="p-4 lg:p-6">
 				<div class="flex gap-3 items-center justify-center">

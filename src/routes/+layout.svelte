@@ -27,7 +27,7 @@ import Intro from '$lib/Intro.svelte';
 
 <Header />
 
-<Lenis />
+<!-- <Lenis /> -->
 
 <slot />
 
