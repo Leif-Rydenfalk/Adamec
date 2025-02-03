@@ -1,15 +1,10 @@
 <script>
-	import {
-		Show,
-		Text,
-		Button,
-		Icon,
-		Logo,
-		CancelIcon,
-	} from "$lib/components";
+import { Show, Text, Button, Icon, Logo, CancelIcon } from '$lib/components';
 
-	import { get } from "svelte/store";
-	import { goto } from "$app/navigation";
+import { get } from 'svelte/store';
+import { goto } from '$app/navigation';
+
+//  shadow-[0_35px_60px_15px_rgba(255,255,255,0.3)]  drop-shadow-xl
 </script>
 
 <div
@@ -30,11 +25,11 @@
 <div class="fixed bottom-[1rem] right-[1rem] lg:bottom-10 lg:right-10 z-[1000]">
 	<Button
 		onClick={() => {
-			goto("/contact");
+			goto('/contact');
 		}}
 	>
 		<div
-			class="text-white justify-center items-center bg-secondary rounded-3xl drop-shadow-xl scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
+			class="text-white justify-center items-center bg-secondary rounded-3xl drop-shadow-xl shadow-[0_0px_35px_rgba(255,255,255,0.15)] scale-90 hover:scale-100 transition-transform ease-spring-smooth-slow"
 		>
 			<div class="p-4 lg:p-6">
 				<div class="flex gap-3 items-center justify-center">
